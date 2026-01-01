@@ -18,3 +18,13 @@ section {
     background-color: var(--section-bg);
     transition: background-color 0.3s ease;
 }
+
+/* Accessibility: Visible Focus Outline */
+:focus-visible {
+    outline: 3px solid #2e7d32;
+    outline-offset: 2px;
+}
+
+[data-theme="dark"] :focus-visible {
+    outline: 3px solid #4ade80;
+}

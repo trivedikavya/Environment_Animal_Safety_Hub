@@ -4,22 +4,26 @@
     background-color: var(--quiz-bg);
     /* light green soft background */
     transition: background-color 0.3s ease;
+    background-color: #97f0af;
+    /* light green soft background */
 }
 
 .kids-quiz-content {
     max-width: 1100px;
     margin: auto;
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 40px;
     justify-content: center;
 }
 
 /* Text Area */
 .quiz-text {
     flex: 1;
+    width: 100%;
     min-width: 300px;
+    height: fit-content;
 }
 
 .quiz-text h2 {
@@ -35,37 +39,60 @@
     margin-bottom: 25px;
     line-height: 1.5;
     transition: color 0.3s ease;
+    color: #444;
+    width: max(30vw,200px);
+    margin-bottom: 25px;
+    line-height: 1.5;
+   
+}
+.quiz-zone{
+    display: flex;
 }
 
 /* Button */
 .quiz-btn {
+    position: relative;
+    top: -300px;
     text-decoration: none;
+    width: fit-content;
     padding: 12px 25px;
     background-color: var(--quiz-btn-bg);
     color: white;
-    font-size: 18px;
+    font-size: 25px;
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
 .quiz-btn:hover {
     background-color: var(--quiz-btn-hover);
+.quiz-btn:hover,
+.quiz-btn:focus-visible {
+    background-color: #ffa726;
     transform: scale(1.05);
+}
+
+.quiz-btn:focus-visible {
+    outline: 3px solid #ff9800;
+    outline-offset: 4px;
 }
 
 /* Quiz Image */
 .quiz-image {
     flex: 1;
-    min-width: 300px;
-    text-align: center;
+    min-width: 400px;
+    
 }
 
 .quiz-image img {
     width: 100%;
     max-width: 450px;
     border-radius: 20px;
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+    margin-left: 20%;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
     transition: transform 0.4s ease;
+    position: relative;
+    top: -50px;
+    
 }
 
 /* Hover Zoom Effect */
@@ -81,5 +108,27 @@
 
     .quiz-text p {
         font-size: 16px;
+    }
+}
+}
+
+@media (max-width: 720px){
+    .quiz-btn{
+        top: 0px;
+    }
+    .quiz-image img{
+        width: 300px;
+        top: 0;
+    }
+    .quiz-zone{
+        display: flex;
+        width: fit-content;
+    }
+
+}
+
+@media (max-width:560px){
+    .quiz-image img{
+        width: 200px;
     }
 }

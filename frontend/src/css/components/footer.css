@@ -40,9 +40,17 @@
     transition: 0.3s ease;
 }
 
-.footer-social .social:hover {
+.footer-social .social:hover,
+.footer-social .social:focus-visible {
     color: var(--footer-link-hover);
     transform: scale(1.2);
+    outline: none;
+}
+
+.footer-social .social:focus-visible {
+    outline: 3px solid var(--footer-link-hover);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* Footer columns */
@@ -71,9 +79,16 @@
     transition: 0.3s;
 }
 
-.footer-col ul li a:hover {
+.footer-col ul li a:hover,
+.footer-col ul li a:focus-visible {
     color: var(--footer-link-hover);
     margin-left: 5px;
+}
+
+.footer-col ul li a:focus-visible {
+    outline: 2px solid var(--footer-link-hover);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
 
 /* Contact icons */

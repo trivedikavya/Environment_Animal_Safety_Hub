@@ -31,6 +31,12 @@
     transform: scale(1.1);
 }
 
+.theme-toggle-btn:focus-visible {
+    outline: 3px solid #2e7d32;
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
 
 
 .navbar .logo {
@@ -54,7 +60,8 @@
     text-decoration: underline;
     background-color: rgb(100, 100, 230);
 } */
-.navbar .nav-links li a:hover {
+.navbar .nav-links li a:hover,
+.navbar .nav-links li a:focus-visible {
     background-color: var(--navbar-hover);
     /* eco green */
     color: var(--navbar-text);
@@ -62,6 +69,11 @@
     border-radius: 6px;
     box-shadow: 0 0 10px var(--navbar-hover);
     transition: 0.3s ease;
+}
+
+.navbar .nav-links li a:focus-visible {
+    outline: 3px solid #2e7d32;
+    outline-offset: 2px;
 }
 
 /* ................... */
@@ -77,10 +89,16 @@
     transition: all 0.3s ease;
 }
 
-.btn-login:hover {
+.btn-login:hover,
+.btn-login:focus-visible {
     background-color: var(--btn-primary-bg);
     color: var(--btn-primary-text);
     box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+}
+
+.btn-login:focus-visible {
+    outline: 3px solid var(--btn-primary-bg);
+    outline-offset: 4px;
 }
 
 /* Signup Button (highlighted) */
@@ -93,7 +111,13 @@
     transition: all 0.3s ease;
 }
 
-.btn-signup:hover {
+.btn-signup:hover,
+.btn-signup:focus-visible {
     background-color: var(--navbar-hover);
     box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+.btn-signup:focus-visible {
+    outline: 3px solid var(--btn-primary-bg);
+    outline-offset: 4px;
 }

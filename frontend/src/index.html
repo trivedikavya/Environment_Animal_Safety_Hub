@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/components/reportForm.css">
     <link rel="stylesheet" href="css/components/quiz.css">
     <link rel="stylesheet" href="css/components/modal.css">
-    <link rel="stylesheet" href="css/components/Login_SignUp.css">
     <style>
         /* Reset some default styles */
         * {
@@ -25,6 +24,67 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
+
+        /* Scroll To Top Button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: #2e7d32;
+            color: #fff;
+            border: none;
+            padding: 12px 14px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #1b5e20;
+            transform: scale(1.1);
+        }
+    </style>
+    <style>
+        /* Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2e7d32;
+            color: white;
+            padding: 8px;
+            z-index: 1001;
+            transition: top 0.3s;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        #scrollTopBtn:focus-visible {
+            outline: 3px solid #2e7d32;
+            outline-offset: 4px;
+            background-color: #1b5e20;
+            transform: scale(1.1);
+        }
+/* Reading Progress Bar */
+#readingProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #2e7d32, #66bb6a);
+  z-index: 10000;
+  transition: width 0.1s ease;
+}
+
+
     </style>
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -34,8 +94,18 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" title="Go to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Reading Progress Bar -->
+<div id="readingProgress"></div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">EcoLife</div>
@@ -73,114 +143,131 @@
 
 
 
-    <!-- Animal Section -->
-    <section id="animal" class="section">
-        <h2>Animal Protection & Adoption</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/24/5e/9a/245e9a9a9898728d21a978edd67b411b.jpg"
-                    alt="Animal Protection">
-                <h3>Adopt Pets</h3>
-                <p>Help stray animals find loving homes.</p>
+    <main id="main-content">
+        <!-- Animal Section -->
+        <section id="animal" class="section">
+            <h2>Animal Protection & Adoption</h2>
+            <div class="cards">
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/24/5e/9a/245e9a9a9898728d21a978edd67b411b.jpg"
+                        alt="Animal Protection">
+                    <h3>Adopt Pets</h3>
+                    <p>Help stray animals find loving homes.</p>
+                </div>
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/90/8e/da/908eda2e439e958f8a276a25d1a9cc6c.jpg"
+                        alt="Animal Awareness">
+                    <h3>Protect Wildlife</h3>
+                    <p>Learn how to protect endangered species.</p>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/90/8e/da/908eda2e439e958f8a276a25d1a9cc6c.jpg"
-                    alt="Animal Awareness">
-                <h3>Protect Wildlife</h3>
-                <p>Learn how to protect endangered species.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Waste Section -->
-    <section id="waste" class="section">
-        <h2>Waste Segregation</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/de/0b/3a/de0b3a9531a93b36d25c78b3523307a0.jpg"
-                    alt="Segregate Waste">
-                <h3>Reduce Plastic</h3>
-                <p>Learn how to reduce, reuse, and recycle waste.</p>
+        <!-- Waste Section -->
+        <section id="waste" class="section">
+            <h2>Waste Segregation</h2>
+            <div class="cards">
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/de/0b/3a/de0b3a9531a93b36d25c78b3523307a0.jpg"
+                        alt="Segregate Waste">
+                    <h3>Reduce Plastic</h3>
+                    <p>Learn how to reduce, reuse, and recycle waste.</p>
+                </div>
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/77/67/5b/77675b8533ae69153b6336e924bbe613.jpg"
+                        alt="Clean Environment">
+                    <h3>Community Cleanups</h3>
+                    <p>Join local initiatives to clean your neighborhood.</p>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/77/67/5b/77675b8533ae69153b6336e924bbe613.jpg"
-                    alt="Clean Environment">
-                <h3>Community Cleanups</h3>
-                <p>Join local initiatives to clean your neighborhood.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Climate Section -->
-    <section id="climate" class="section">
-        <h2>Climate Change Awareness</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/0d/62/62/0d6262dbc9df357f19e5948bb1d63f2b.jpg"
-                    alt="Climate Awareness">
-                <h3>Save Energy</h3>
-                <p>Simple ways to reduce carbon footprint daily.</p>
+        <!-- Climate Section -->
+        <section id="climate" class="section">
+            <h2>Climate Change Awareness</h2>
+            <div class="cards">
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/0d/62/62/0d6262dbc9df357f19e5948bb1d63f2b.jpg"
+                        alt="Climate Awareness">
+                    <h3>Save Energy</h3>
+                    <p>Simple ways to reduce carbon footprint daily.</p>
+                </div>
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/a8/e5/c5/a8e5c5f756ad1179e194bc3205d8b144.jpg"
+                        alt="Environment Awareness">
+                    <h3>Plant Trees</h3>
+                    <p>Participate in tree plantation drives.</p>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/a8/e5/c5/a8e5c5f756ad1179e194bc3205d8b144.jpg"
-                    alt="Environment Awareness">
-                <h3>Plant Trees</h3>
-                <p>Participate in tree plantation drives.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Plant Care Section -->
-    <section id="plants" class="section">
-        <h2>Plant Care</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/52/7a/cc/527accddb75efd9315c8d6afba2bba1d.jpg" alt="Plant Care">
-                <h3>Gardening Tips</h3>
-                <p>Learn how to grow and care for plants at home.</p>
+        <!-- Plant Care Section -->
+        <section id="plants" class="section">
+            <h2>Plant Care</h2>
+            <div class="cards">
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/52/7a/cc/527accddb75efd9315c8d6afba2bba1d.jpg" alt="Plant Care">
+                    <h3>Gardening Tips</h3>
+                    <p>Learn how to grow and care for plants at home.</p>
+                </div>
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/736x/7b/07/7d/7b077d6b6f89cc8d0cbe15f85e9d3242.jpg"
+                        alt="Plant Awareness">
+                    <h3>Community Gardens</h3>
+                    <p>Join local gardening projects to green your city.</p>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/7b/07/7d/7b077d6b6f89cc8d0cbe15f85e9d3242.jpg"
-                    alt="Plant Awareness">
-                <h3>Community Gardens</h3>
-                <p>Join local gardening projects to green your city.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Animal Feeding Section -->
-    <section id="feeding" class="section">
-        <h2>Animal Feeding Awareness</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="https://i.pinimg.com/1200x/e3/39/d3/e339d31da13cb49f1b8ecd1a240b26d1.jpg" alt="Feed Animals">
-                <h3>Feed Stray Animals</h3>
-                <p>Learn safe ways to feed stray animals.</p>
+        <!-- Animal Feeding Section -->
+        <section id="feeding" class="section">
+            <h2>Animal Feeding Awareness</h2>
+            <div class="cards">
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/1200x/e3/39/d3/e339d31da13cb49f1b8ecd1a240b26d1.jpg"
+                        alt="Feed Animals">
+                    <h3>Feed Stray Animals</h3>
+                    <p>Learn safe ways to feed stray animals.</p>
+                </div>
+                <div class="card" tabindex="0">
+                    <img src="https://i.pinimg.com/1200x/00/ea/94/00ea94b5fb80993c7d5c82d668592b52.jpg"
+                        alt="Animal Care">
+                    <h3>Volunteer</h3>
+                    <p>Participate in feeding drives organized by NGOs.</p>
+                </div>
             </div>
-            <div class="card">
-                <img src="https://i.pinimg.com/1200x/00/ea/94/00ea94b5fb80993c7d5c82d668592b52.jpg" alt="Animal Care">
-                <h3>Volunteer</h3>
-                <p>Participate in feeding drives organized by NGOs.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Kids Quiz Section -->
-    <section id="quiz" class="kids-quiz-section">
-        <div class="kids-quiz-content">
+        <!-- Kids Quiz Section -->
+        <section id="quiz" class="kids-quiz-section">
+            <div class="kids-quiz-content">
+
+                <div class="quiz-text">
+                    <h2>Kids Quiz Zone</h2>
+                    <p>
+                        A fun and simple way for kids to learn about nature, animals, and the environment.
+                        Let them explore, answer questions, and grow their knowledge.
+                    </p>
+                    <a href="quiz.html" class="quiz-btn">Start Quiz</a>
+                </div>
 
             <div class="quiz-text">
                 <h2>Kids Quiz Zone</h2>
-                <p>
-                    A fun and simple way for kids to learn about nature, animals, and the environment.
-                    Let them explore, answer questions, and grow their knowledge.
-                </p>
-                <a href="quiz.html" class="quiz-btn">Start Quiz</a>
+                    <div class="quiz-zone"><p>
+                        A fun and simple way for kids to learn about nature, animals, and the environment.
+                        Let them explore, answer questions, and grow their knowledge.
+                        </p>
+                        <div class="quiz-image">
+                            <img src="https://i.pinimg.com/1200x/82/b1/66/82b1667e9a1c1fabba633f0792725da9.jpg" alt="Kids Learning">
+                        </div>
+                    </div>
+                <div class="quiz-btn">Coming soon</div>
+                
+               
             </div>
-
-            <div class="quiz-image">
-                <img src="https://i.pinimg.com/1200x/82/b1/66/82b1667e9a1c1fabba633f0792725da9.jpg" alt="Kids Learning">
-            </div>
+            
+            
+             
 
         </div>
     </section>
@@ -280,6 +367,37 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <script src="js/global/theme-toggle.js"></script>
+
+    <script>
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function () {
+    if (document.documentElement.scrollTop > 300) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+};
+
+scrollTopBtn.addEventListener("click", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+</script>
+<script>
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+
+  const progress = (scrollTop / scrollHeight) * 100;
+  document.getElementById("readingProgress").style.width = progress + "%";
+});
+</script>
+
 
 </body>
 
