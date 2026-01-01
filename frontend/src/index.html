@@ -345,21 +345,38 @@
     <script src="js/components/navbar.js"></script>
 
     <script>
+        /** const scrollTopBtn = document.getElementById("scrollTopBtn");
+ 
+         function toggleScrollTopButton() {
+             // robust scroll position check
+             const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+ 
+             if (scrollY > 20) {
+                 scrollTopBtn.style.display = "block";
+             } else {
+                 scrollTopBtn.style.display = "none";
+             }
+         }
+ 
+         window.addEventListener('scroll', toggleScrollTopButton);
+         document.addEventListener('DOMContentLoaded', toggleScrollTopButton);
+ 
+         scrollTopBtn.addEventListener("click", function () {
+             window.scrollTo({
+                 top: 0,
+                 behavior: "smooth"
+             });
+         });**/
+
         const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-        function toggleScrollTopButton() {
-            // robust scroll position check
-            const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
-
-            if (scrollY > 20) {
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 300) {
                 scrollTopBtn.style.display = "block";
             } else {
                 scrollTopBtn.style.display = "none";
             }
-        }
-
-        window.addEventListener('scroll', toggleScrollTopButton);
-        document.addEventListener('DOMContentLoaded', toggleScrollTopButton);
+        };
 
         scrollTopBtn.addEventListener("click", function () {
             window.scrollTo({
