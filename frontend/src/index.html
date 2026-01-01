@@ -97,6 +97,37 @@
   width: fit-content;
 }
 
+/* Section Completion Tracker */
+.section-tracker {
+  max-width: 320px;
+  margin: 30px auto;
+  padding: 15px 20px;
+  background: #f1f8e9;
+  border-radius: 12px;
+  border: 1px solid #c5e1a5;
+  font-size: 14px;
+}
+
+.section-tracker h4 {
+  margin-bottom: 10px;
+  color: #2e7d32;
+  font-size: 16px;
+}
+
+.section-tracker ul {
+  list-style: none;
+  padding: 0;
+}
+
+.section-tracker li {
+  margin: 6px 0;
+  transition: color 0.3s ease;
+}
+
+.section-tracker li.completed {
+  color: #2e7d32;
+  font-weight: bold;
+}
 
 
 
@@ -164,6 +195,19 @@
             </div>
         </div>
     </section>
+
+    <!-- Section Completion Tracker -->
+<div class="section-tracker">
+  <h4>📘 Your Progress</h4>
+  <ul>
+    <li id="track-animal">⏳ Animal Protection</li>
+    <li id="track-waste">⏳ Waste Segregation</li>
+    <li id="track-climate">⏳ Climate Awareness</li>
+    <li id="track-plants">⏳ Plant Care</li>
+    <li id="track-feeding">⏳ Animal Feeding</li>
+  </ul>
+</div>
+
 
 
 
@@ -433,6 +477,42 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
+<script>
+const sections = [
+  { id: "animal", tracker: "track-animal" },
+  { id: "waste", tracker: "track-waste" },
+  { id: "climate", tracker: "track-climate" },
+  { id: "plants", tracker: "track-plants" },
+  { id: "feeding", tracker: "track-feeding" }
+];
+
+// Restore progress
+sections.forEach(sec => {
+  if (localStorage.getItem(sec.id) === "done") {
+    markCompleted(sec.tracker);
+  }
+});
+
+function markCompleted(trackerId) {
+  const item = document.getElementById(trackerId);
+  item.textContent = "✓ " + item.textContent.replace("⏳ ", "");
+  item.classList.add("completed");
+}
+
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const sectionEl = document.getElementById(sec.id);
+    const rect = sectionEl.getBoundingClientRect();
+
+    if (rect.top < window.innerHeight / 2) {
+      if (localStorage.getItem(sec.id) !== "done") {
+        localStorage.setItem(sec.id, "done");
+        markCompleted(sec.tracker);
+      }
+    }
+  });
+});
+</script>
 
 </body>
 
