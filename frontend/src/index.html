@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/components/hero.css" />
     <link rel="stylesheet" href="css/components/sections.css" />
     <link rel="stylesheet" href="css/components/scrollBar.css" />
+    <link rel="stylesheet" href="css/components/modal.css" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -304,9 +305,9 @@
               We rescue, treat, and rehabilitate injured and abandoned animals,
               giving them a second chance at life.
             </p>
-            <a href="#animal" class="service-link">
-              Learn More <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="javascript:void(0)" class="service-link open-modal-btn" data-id="animal-rescue">
+    Learn More <i class="fa-solid fa-arrow-right"></i>
+</a>
           </div>
 
           <div class="service-card" data-aos="fade-up" data-aos-delay="100">
@@ -318,9 +319,9 @@
               Promoting proper waste segregation, recycling, and reducing
               plastic usage in communities.
             </p>
-            <a href="#waste" class="service-link">
-              Learn More <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="javascript:void(0)" class="service-link open-modal-btn" data-id="waste-mgmt">
+    Learn More <i class="fa-solid fa-arrow-right"></i>
+</a>
           </div>
 
           <div class="service-card" data-aos="fade-up" data-aos-delay="200">
@@ -332,9 +333,9 @@
               Raising awareness about climate change and promoting sustainable
               lifestyle choices.
             </p>
-            <a href="#climate" class="service-link">
-              Learn More <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="javascript:void(0)" class="service-link open-modal-btn" data-id="climate-action">
+    Learn More <i class="fa-solid fa-arrow-right"></i>
+</a>
           </div>
 
           <div class="service-card" data-aos="fade-up" data-aos-delay="300">
@@ -346,9 +347,9 @@
               Organizing community drives to plant trees and create urban green
               spaces.
             </p>
-            <a href="#plants" class="service-link">
-              Learn More <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="javascript:void(0)" class="service-link open-modal-btn" data-id="tree-plant">
+    Learn More <i class="fa-solid fa-arrow-right"></i>
+</a>
           </div>
         </div>
       </div>
@@ -386,9 +387,9 @@
                 to a furry friend in need.
               </p>
               <div class="card-footer">
-                <a href="#" class="card-btn">
-                  Adopt Now <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <a href="javascript:void(0)" class="card-btn open-modal-btn" data-id="adopt-pets">
+    Adopt Now <i class="fa-solid fa-arrow-right"></i>
+</a>
                 <div class="card-stats">
                   <i class="fa-solid fa-heart"></i> 1.2K adopted
                 </div>
@@ -413,9 +414,9 @@
                 natural habitats.
               </p>
               <div class="card-footer">
-                <a href="#" class="card-btn">
-                  Learn More <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <a href="javascript:void(0)" class="card-btn open-modal-btn" data-id="wildlife">
+    Learn More <i class="fa-solid fa-arrow-right"></i>
+</a>
                 <div class="card-stats">
                   <i class="fa-solid fa-shield-heart"></i> 500+ protected
                 </div>
@@ -440,9 +441,9 @@
                 feeding programs.
               </p>
               <div class="card-footer">
-                <a href="#" class="card-btn">
-                  Join Program <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <a href="javascript:void(0)" class="card-btn open-modal-btn" data-id="feeding">
+    Join Program <i class="fa-solid fa-arrow-right"></i>
+</a>
                 <div class="card-stats">
                   <i class="fa-solid fa-bowl-food"></i> 5K+ fed daily
                 </div>
@@ -485,9 +486,9 @@
                 single-use plastics.
               </p>
               <div class="card-footer">
-                <a href="#" class="card-btn">
-                  Get Tips <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <a href="javascript:void(0)" class="card-btn open-modal-btn" data-id="plastic">
+    Get Tips <i class="fa-solid fa-arrow-right"></i>
+</a>
                 <div class="card-stats">
                   <i class="fa-solid fa-trash"></i> 10T+ reduced
                 </div>
@@ -512,9 +513,9 @@
                 counts!
               </p>
               <div class="card-footer">
-                <a href="#" class="card-btn">
-                  Learn How <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <a href="javascript:void(0)" class="card-btn open-modal-btn" data-id="energy">
+    Learn How <i class="fa-solid fa-arrow-right"></i>
+</a>
                 <div class="card-stats">
                   <i class="fa-solid fa-bolt"></i> 30% savings
                 </div>
@@ -539,9 +540,9 @@
                 forests.
               </p>
               <div class="card-footer">
-                <a href="#" class="card-btn">
-                  Join Drive <i class="fa-solid fa-arrow-right"></i>
-                </a>
+                <a href="javascript:void(0)" class="card-btn open-modal-btn" data-id="tree-drive">
+    Join Drive <i class="fa-solid fa-arrow-right"></i>
+</a>
                 <div class="card-stats">
                   <i class="fa-solid fa-tree"></i> 50K+ planted
                 </div>
@@ -1183,5 +1184,19 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
+
+    <div class="custom-modal-overlay" id="infoModal">
+        <div class="custom-modal-content">
+            <button class="custom-modal-close" onclick="closeInfoModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-inner">
+                <div class="modal-header-content" id="modalHeader">
+                    </div>
+                <div class="modal-body-content" id="modalBody">
+                    </div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
