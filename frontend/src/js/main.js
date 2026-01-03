@@ -885,3 +885,6 @@ renderGlossary();
 searchInput.addEventListener("input", e => {
   renderGlossary(e.target.value);
 });
+function toggleCard(card) {
+  card.classList.toggle("flipped");
+}
