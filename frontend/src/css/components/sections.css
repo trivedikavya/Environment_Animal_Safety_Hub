@@ -761,3 +761,71 @@
     height: 50%;
   }
 }
+/* ================================
+   Eco Challenges Section
+================================ */
+
+.eco-challenges-section {
+  padding: 80px 0;
+  background: var(--bg-light);
+}
+
+.eco-challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.eco-challenge-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eco-challenge-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.eco-challenge-card i {
+  font-size: 36px;
+  color: #4caf50;
+  margin-bottom: 16px;
+}
+
+.eco-challenge-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.eco-challenge-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.challenge-btn {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.challenge-btn:hover {
+  background: #43a047;
+  transform: scale(1.05);
+}
+
+.challenge-btn.completed {
+  background: #2e7d32;
+  cursor: default;
+}
